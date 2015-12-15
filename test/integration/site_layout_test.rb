@@ -14,6 +14,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "signup page" do
     get signup_path
     assert_select "title", full_title("Sign up")
+    assert_select "input[value=?]",  "Create my account"
   end
 
 end
