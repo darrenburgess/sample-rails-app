@@ -13,9 +13,7 @@
   </aside>
   <div class="co-md-8">
     <% if @user.addresses.any? %>
-      <% @user.addresses.each do |address| %>
-        <%= address.state %>
-      <% end %>
+      <%= render @addresses %>
     <% end %>  
   </div>
   <div class="co-md-8">
