@@ -1,0 +1,15 @@
+address1:
+  street1: "123 Any Street"
+  street2: "Apt 1"
+  city: "Springfield"
+  state: "MA"
+  zip: "12345"
+  user: michael
+
+address2:
+  street1: MyString
+  street2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  user: michael 

@@ -7,6 +7,11 @@ class UserTest < ActiveSupport::TestCase
                       email:                "user@example.com",
                       password:             "foobar",
                       password_confirmation:"foobar")
+    @address = {      street1:              "123 Any Street",
+                      street2:              "Apt 1",
+                      city:                 "Springfield",
+                      state:                "MA",
+                      zip:                  "12345"}
   end
   
   test "should be valid" do
@@ -115,5 +120,14 @@ class UserTest < ActiveSupport::TestCase
       assert_not michael.feed.include?(post_unfollowed)
     end
   end
+
+  test "associated addresses should be destroyed" do
+    @user.save
+    @user.addresses.create!(@address)
+    assert_difference 'Address.count', -1 do
+      @user.destroy
+    end
+  end
+  
   
 end

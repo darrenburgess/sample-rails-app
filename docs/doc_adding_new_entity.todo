@@ -1,0 +1,32 @@
+Adding new entity to basic application:
+  ☐ one-to-many relationship
+  ☐ generate a model
+    ☐ rails generate model Modelname field:type parent: references
+    ☐ use parent: references to add foreign key to new model
+  ☐ _create_modelnames.rb - add an index to columns that need such (sorting for example)
+    ☐ modelname.rb - add_index :modelnames, [:column1, :column2, ...] 
+  ☐ bundle exec rake db:migrate
+  ☐ add validation tests to modelname_test.rb
+  ☐ add validations to modelname.rb
+  ☐ run tests - bundle exec rake test
+  ☐ create association in the model
+    ☐ child.rb - belongs_to :parent
+    ☐ parent.rb - has_many :childs
+    ☐ parent.rb (cascade delete) - has_many :childs, dependent: :destroy
+  ☐ modelname_test.rb - modify setup method
+    ☐ @child = @parent.childs.build(column1: "value", etc)
+  ☐ childs.yml - create some fixtures for the new model
+  ☐ optional - add a test and a sort order to the child model:
+    ☐ default_scope -> { order(column: :desc) }
+  ☐ test - destroying child reduces count by 1 (see 11.19 in Hartl)
+  ☐ 11.2 - consider the ui for the new feature
+  ☐ 11.2.1 - generate a controller
+    ☐ rails generate controller Modelnames
+  ☐ 11.2.1 - create a partial to display one related Modelname
+    ☐ _modelname.html.erb
+  ☐ listing 11.23 - add modelname partial to a page, or create a new page
+  ☐ add sample data to seeds.rb 
+    ☐ bundle exec rake db:migrate:reset
+    ☐ bundle exec rake db:seed
+
+

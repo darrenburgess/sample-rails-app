@@ -6,6 +6,21 @@ User.create!(name:  "Example User",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+
+# Addresses
+Address.create!(street1: "123 Any Street",
+                street2: "Apt 1",
+                city: "Springfield",
+                state: "MA",
+                zip: "12345",
+                user_id: 1)
+
+Address.create!(street1: "456 Any Street",
+                street2: "Apt 2",
+                city: "Springfield",
+                state: "FL",
+                zip: "67890",
+                user_id: 1)
               
 99.times do |n|
   name = Faker::Name.name
@@ -15,8 +30,8 @@ User.create!(name:  "Example User",
                email:                 email,
                password:              password,
                password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
+               activated:             true,
+               activated_at:          Time.zone.now)
 end
 
 # Microposts
