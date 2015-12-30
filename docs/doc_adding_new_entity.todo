@@ -1,8 +1,11 @@
-Adding new entity to basic application:
-  ☐ one-to-many relationship
+adding new entity to basic application:
+  ☐ purpose
+    ☐ describes adding a one-to-many relationship in the context of users for the hartl sample application
+
+steps:    
   ☐ generate a model
     ☐ rails generate model Modelname field:type parent: references
-    ☐ use parent: references to add foreign key to new model
+    ☐ use parent: references to add foreign key to new model migration
   ☐ _create_modelnames.rb - add an index to columns that need such (sorting for example)
     ☐ modelname.rb - add_index :modelnames, [:column1, :column2, ...] 
   ☐ bundle exec rake db:migrate
@@ -20,11 +23,15 @@ Adding new entity to basic application:
     ☐ default_scope -> { order(column: :desc) }
   ☐ test - destroying child reduces count by 1 (see 11.19 in Hartl)
   ☐ 11.2 - consider the ui for the new feature
-  ☐ 11.2.1 - generate a controller
+  ☐ 11.2.1 - generate a controller 
     ☐ rails generate controller Modelnames
+    ☐ not really needed though because the actions will go in the user controller
+  ☐ create a controller action in the parent controller
+    ☐ should find the user then create instance variable @modelnames
+  ☐ create view: modelnames.html.erb  11.23
   ☐ 11.2.1 - create a partial to display one related Modelname
     ☐ _modelname.html.erb
-  ☐ listing 11.23 - add modelname partial to a page, or create a new page
+  ☐ add new display page to the site navigation in header template
   ☐ add sample data to seeds.rb 
     ☐ bundle exec rake db:migrate:reset
     ☐ bundle exec rake db:seed
