@@ -15,9 +15,6 @@ steps:
     ☐ parent.rb (cascade delete) - has_many :childs, dependent: :destroy
   ☐ modelname_test.rb - modify setup method
     ☐ @child = @parent.childs.build(column1: "value", etc)
-  ☐ childs.yml - create some fixtures for the new model
-  ☐ optional - add a test and a sort order to the child model:
-    ☐ default_scope -> { order(column: :desc) }
   ☐ 11.2.1 - generate a controller 
     ☐ rails generate controller ModelNames
     ☐ not really needed though because the actions will go in the user controller

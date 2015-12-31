@@ -6,6 +6,14 @@ User.create!(name:  "Example User",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+
+Comm.create!(contact_string:          "352-375-2650",
+             method:                  "phone",
+             user_id:                 1)
+
+Comm.create!(contact_string:          "darren_b@beezwax.net",
+             method:                  "email",
+             user_id:                 1)
               
 99.times do |n|
   name = Faker::Name.name

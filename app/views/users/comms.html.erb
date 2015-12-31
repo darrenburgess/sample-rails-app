@@ -1,0 +1,10 @@
+<%= provide(:title, "Contact Information") %>
+<div class="row">
+<div class="col-md-8">
+    <h2><%= @user.name %></h2>
+    <% if @user.comms.any? %>
+      <p><%= render @comms %></p>
+    <% end %>
+  </div>
+</div>
+
