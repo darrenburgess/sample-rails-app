@@ -1,0 +1,35 @@
+adding new entity to basic application:
+  ☐ purpose
+    ☐ describes adding a one-to-many relationship in the context of users for the hartl sample application
+    ☐ excludes testing and testing fixtures
+
+steps:    
+  ☐ generate a model
+    ☐ rails generate model Modelname field:type parent: references
+    ☐ use parent: references to add foreign key to new model migration
+  ☐ _create_modelnames.rb - add an index to columns that need such (sorting for example)
+    ☐ modelname.rb - add_index :modelnames, [:column1, :column2, ...] 
+  ☐ bundle exec rake db:migrate
+  ☐ create association in the model
+    ☐ child.rb - belongs_to :parent
+    ☐ parent.rb (cascade delete) - has_many :childs, dependent: :destroy
+  ☐ modelname_test.rb - modify setup method
+    ☐ @child = @parent.childs.build(column1: "value", etc)
+  ☐ childs.yml - create some fixtures for the new model
+  ☐ optional - add a test and a sort order to the child model:
+    ☐ default_scope -> { order(column: :desc) }
+  ☐ 11.2.1 - generate a controller 
+    ☐ rails generate controller ModelNames
+    ☐ not really needed though because the actions will go in the user controller
+  ☐ add a route to routes.rb
+  ☐ create a controller action in the parent controller
+    ☐ should find the user then create instance variable @modelnames
+  ☐ create view: modelnames.html.erb  11.23
+  ☐ 11.2.1 - create a partial to display one related Modelname
+    ☐ _modelname.html.erb
+  ☐ add new display page to the site navigation in header template
+  ☐ add sample data to seeds.rb 
+    ☐ bundle exec rake db:migrate:reset
+    ☐ bundle exec rake db:seed
+
+
