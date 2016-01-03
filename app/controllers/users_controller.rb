@@ -7,15 +7,25 @@ class UsersController < ApplicationController
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
   end
+
+  def get_user
+    @user = User.find(params[:id])
+  end
   
   def show
-    @user = User.find(params[:id])
+    @user = get_user
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def comms
-    @user = User.find(params[:id])
+    @user = get_user
     @comms = @user.comms 
+  end
+
+
+  def pets
+    @user = get_user
+    @pets = @user.pets
   end
   
   def new
@@ -23,7 +33,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+    @user = get_user
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"
@@ -34,11 +44,11 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = get_user
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = get_user
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -55,14 +65,14 @@ class UsersController < ApplicationController
   
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user  = get_user
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
   
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
+    @user  = get_user
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end

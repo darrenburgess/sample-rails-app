@@ -13,18 +13,16 @@ steps:
   ☐ create association in the model
     ☐ child.rb - belongs_to :parent
     ☐ parent.rb (cascade delete) - has_many :childs, dependent: :destroy
-  ☐ modelname_test.rb - modify setup method
-    ☐ @child = @parent.childs.build(column1: "value", etc)
   ☐ 11.2.1 - generate a controller 
     ☐ rails generate controller ModelNames
     ☐ not really needed though because the actions will go in the user controller
   ☐ add a route to routes.rb
+  ☐ add new display page to the site navigation in header template
   ☐ create a controller action in the parent controller
     ☐ should find the user then create instance variable @modelnames
-  ☐ create view: modelnames.html.erb  11.23
+  ☐ create view: app/views/{parent}/modelnames.html.erb  11.23
   ☐ 11.2.1 - create a partial to display one related Modelname
-    ☐ _modelname.html.erb
-  ☐ add new display page to the site navigation in header template
+    ☐ app/views/{modelnames}/_modelname.html.erb
   ☐ add sample data to seeds.rb 
     ☐ bundle exec rake db:migrate:reset
     ☐ bundle exec rake db:seed

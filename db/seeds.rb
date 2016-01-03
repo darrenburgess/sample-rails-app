@@ -14,6 +14,15 @@ Comm.create!(contact_string:          "352-375-2650",
 Comm.create!(contact_string:          "darren_b@beezwax.net",
              method:                  "email",
              user_id:                 1)
+
+Pet.create!(name:                     "Milo",
+            animal_type:              "dog",
+            user_id:                  1)
+
+Pet.create!(name:                     "Oreo",
+            animal_type:              "cat",
+            user_id:                  1)
+
               
 99.times do |n|
   name = Faker::Name.name

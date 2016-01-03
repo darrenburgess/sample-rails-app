@@ -16,10 +16,10 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
       get :comms
+      get :pets
     end
   end
-  resources :users
-  resources :comms
+  resources :users, :comms, :pets
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
