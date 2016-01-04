@@ -2,6 +2,12 @@ adding new entity to basic application:
   ☐ purpose
     ☐ describes adding a one-to-many relationship in the context of users for the hartl sample application
     ☐ excludes testing and testing fixtures
+  ☐ when accessing static pages
+    ☐ ActionController::UrlGenerationError in StaticPagesController#help
+    ☐ error: No route matches {:action=>"comms", :controller=>"users", :id=>nil} missing required keys: [:id]
+    ☐ occurs starting at the pets commit
+    ☐ seems like there is no id provided and so the UR cannot be build in the menu
+
 
 steps:    
   ☐ generate a model
