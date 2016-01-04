@@ -7,10 +7,6 @@ class UsersController < ApplicationController
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
   end
-
-  def get_user
-    @user = User.find(params[:id])
-  end
   
   def show
     @user = User.find(params[:id])
@@ -37,7 +33,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:id])
+    @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"
@@ -52,7 +48,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = get_user
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
