@@ -20,7 +20,7 @@ steps:
   ☐ add new display page to the site navigation in header template
   ☐ create a controller action in the parent controller
     ☐ should find the user then create instance variable @modelnames
-  ☐ create view: app/views/{parent}/modelnames.html.erb  11.23
+  ☐ create view: app/views/{parents}/modelnames.html.erb  11.23
   ☐ 11.2.1 - create a partial to display one related Modelname
     ☐ app/views/{modelnames}/_modelname.html.erb
   ☐ add sample data to seeds.rb 

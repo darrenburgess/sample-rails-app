@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_name: MyText
+  balance: 9.99
+  user_id: 
+
+two:
+  account_name: MyText
+  balance: 9.99
+  user_id: 

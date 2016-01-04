@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
   has_many :comms, dependent: :destroy
   has_many :pets, dependent: :destroy
+  has_many :accounts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy

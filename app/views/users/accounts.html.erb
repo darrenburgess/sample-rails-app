@@ -1,0 +1,10 @@
+<%= provide(:title, "Your Bank Accounts") %>
+<div class="row">
+  <div class="col-md-8">
+    <h3>Your Bank Accounts</h3>
+    <% if @user.accounts.any? %>
+      <p><%= render @accounts %></p>
+    <% end %>
+    <p>Total: <%= number_to_currency( @accounts.sum(:balance) ) %></p>    
+  </div>
+</div>

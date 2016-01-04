@@ -13,18 +13,22 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = get_user
+    @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def comms
-    @user = get_user
+    @user = User.find(params[:id])
     @comms = @user.comms 
   end
 
+  def accounts
+    @user = User.find(params[:id])
+    @accounts = @user.accounts
+  end
 
   def pets
-    @user = get_user
+    @user = User.find(params[:id])
     @pets = @user.pets
   end
   
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = get_user
+    @user = User.find(params[:id])
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = get_user
+    @user = User.find(params[:id])
   end
   
   def update

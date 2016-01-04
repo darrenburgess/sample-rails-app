@@ -23,6 +23,25 @@ Pet.create!(name:                     "Oreo",
             animal_type:              "cat",
             user_id:                  1)
 
+Account.create!(
+            account_name:             "Wells Fargo",
+            balance:                  2536,
+            user_id:                  1)
+
+Account.create!(
+            account_name:             "Bank of America",
+            balance:                  1234,
+            user_id:                  1)
+
+Account.create!(
+            account_name:             "User 2 Account A",
+            balance:                  2536,
+            user_id:                  2)
+
+Account.create!(
+            account_name:             "User 2 Account B",
+            balance:                  1234,
+            user_id:                  2)
               
 99.times do |n|
   name = Faker::Name.name
